@@ -14,7 +14,7 @@ export class ComunaPage implements OnInit {
   comuna = new FormGroup({
 
     id: new FormControl('', Validators.required),
-    nombre: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(40)])
+    nombre: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(40)])
 
   });
 

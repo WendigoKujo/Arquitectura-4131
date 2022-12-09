@@ -14,8 +14,8 @@ export class MunicipalidadPage implements OnInit {
   municipalidad = new FormGroup({
 
     id: new FormControl('', Validators.required),
-    nombre: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(50)]),
-    direccion: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(50)]),
+    nombre: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
+    direccion: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]),
     telefono: new FormControl('', [Validators.required, Validators.pattern('[0-9]{8}')]),
     comuna: new FormControl('', Validators.required)
   

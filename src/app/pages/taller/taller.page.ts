@@ -15,7 +15,7 @@ export class TallerPage implements OnInit {
   taller = new FormGroup({
 
     id: new FormControl('', Validators.required),
-    nombre: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(50)]),
+    nombre: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
     fecha: new FormControl('', Validators.required),
     descripcion: new FormControl('', [Validators.minLength(8), Validators.maxLength(50)]),
     estado_taller: new FormControl('', Validators.required),

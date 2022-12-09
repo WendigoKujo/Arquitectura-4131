@@ -14,7 +14,7 @@ export class CursoPage implements OnInit {
   curso = new FormGroup({
 
     id: new FormControl('', Validators.required),
-    nombre: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(50)]),
+    nombre: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]),
     fecha_inicio: new FormControl('', [Validators.required]),
     fecha_termino: new FormControl('', [Validators.required]),
     horario: new FormControl('', [Validators.required, Validators.pattern('[0-9]{1,2}:[0-9]{1,2}-[0-9]{1,2}:[0-9]{1,2}')]),

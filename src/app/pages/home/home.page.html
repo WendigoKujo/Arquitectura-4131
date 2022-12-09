@@ -125,6 +125,20 @@
 
         </ion-tab-button>
 
+        <ion-tab-button tab="reporte-beneficiario" *ngIf="usuario.tipo_usuario == 'beneficiario'">
+
+          <ion-icon name="folder-open"></ion-icon>
+          <ion-label>Generar Reporte</ion-label>
+
+        </ion-tab-button>
+
+        <ion-tab-button tab="reporte-instructor" *ngIf="usuario.tipo_usuario == 'instructor'">
+
+          <ion-icon name="folder-open"></ion-icon>
+          <ion-label>Generar Reporte</ion-label>
+
+        </ion-tab-button>
+
       </ion-tab-bar>
 
     </ion-tabs>

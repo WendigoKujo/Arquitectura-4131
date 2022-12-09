@@ -1,0 +1,39 @@
+<ion-content>
+
+  <div class="fondo">
+
+    <form>
+
+      <ion-card class="card">
+
+        <ion-card-content style="font-size: x-large; color: black;">En este apartado podras ver todos los postulantes disponibles, 
+        basta con que veas los datos y decidas si lo aceptas o no para entrar el taller.</ion-card-content>
+
+      </ion-card>
+
+    </form>
+
+  </div>
+
+  <ion-list *ngFor="let i of inscripciones">
+    <ion-card>
+      <ion-item>
+        <ion-card-header>
+          <ion-card-title>Nombre Beneficiario: {{i.beneficiario}}</ion-card-title>
+          Fecha: {{i.fecha}}
+          <br>
+          Taller: {{i.nombre_taller}}
+          <br>
+          Descripcion: {{i.descripcion}}
+        </ion-card-header>
+      </ion-item>
+      <ion-card-content>
+
+        <ion-button slot="end" color="success" (click)="eliminar1(i.id)">Aceptar</ion-button>
+        <ion-button slot="end" color="danger" (click)="eliminar2(i.id)">Rechazar</ion-button>
+
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-content [fullscreen]="true">
+
+  <div class="fondo">
+
+    <h1 class="heading">👋 Bienvenido/a!<br><br></h1>
+    <p class="para">Inicie Sesion Para Continuar!</p>
+
+    <form [formGroup]="usuario" (ngSubmit)="login()">
+
+      <ion-card>
+
+        <ion-card-content>
+
+          <ion-item lines="none" class="ion-item" color="a">
+            <fieldset  class="input-item">
+              <legend>Email</legend> 
+              <ion-input formControlName="email" type="email" placeholder="nombre@gmail.com/cl"></ion-input>
+            </fieldset>
+          </ion-item>
+
+          <ion-item lines="none" class="ion-item" color="a">
+            <fieldset class="input-item">
+              <legend>Contraseña</legend> 
+              <ion-input formControlName="password" type="password" placeholder="*******"></ion-input>
+            </fieldset>
+          </ion-item>
+
+          <ion-button class="login-button" expand="block" [disabled]="!usuario.valid" type="submit">Ingresar</ion-button>
+          <p class="a-text" style="margin-bottom: 5px;"><a routerLink="/recuperar" (click)="this.usuario.reset()">Olvidaste Tu Contraseña?</a></p>
+          <p class="a-text"><a routerLink="/registro" (click)="this.usuario.reset()">Quiero Registrarme</a></p>
+
+        </ion-card-content>
+
+      </ion-card>
+
+    </form>
+
+  </div>
+
+</ion-content>

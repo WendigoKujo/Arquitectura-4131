@@ -1,0 +1,44 @@
+.fondo{
+
+  background-image: url(../../../assets/img/adultos_mayores_pc.jpg);
+  background-size: cover;
+  height: 92.9vh;
+  text-align: center;
+
+}
+ion-card{
+
+  background: rgba(173, 169, 169, 0.774);
+  margin: 0 auto;
+  top: 15vh;
+  height: 55vh;
+  width: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+}
+
+@media (max-width: 500px){
+
+  ion-card{
+
+    height: 70vh;
+    top: 2vh;
+
+  }
+
+  .fondo{
+
+    height: 82vh;
+
+  }
+
+  ion-title{
+
+      font-size: 15px
+
+  }
+
+}

@@ -1,0 +1,85 @@
+<ion-content>
+
+  <h1 style="margin-left: 25px;">Lista de Instructores</h1>
+  <form [formGroup]="opinion" (ngSubmit)="registrar()">
+    <div *ngIf="usuarios.length != 0;">
+      <ion-list *ngFor="let u of usuarios">
+        <div *ngIf="u.tipo_usuario == 'instructor'">
+          <ion-card>
+            <ion-item>
+              <ion-card-header>
+                <ion-card-title>{{u.nombres + ' ' + u.apellidos}}</ion-card-title>
+                Rut: {{u.rut}}
+                <br>
+                Email: {{u.email}}
+                <br>
+                Fecha De Nacimiento: {{u.fecha_nacimiento}}
+                <br>
+                Genero: {{u.genero}}
+                <br>
+                Direccion: {{u.direccion}}
+                <br>
+                Telefono: 9 {{u.telefono}}
+                <br>
+                Tipo De Usuario: {{u.tipo_usuario}}
+              </ion-card-header>
+            </ion-item>
+            <ion-card-content>
+
+              <ion-radio-group formControlName="valoracion">
+
+                <ion-list-header>
+                  <legend>Seleccione Nota (1-5)</legend>
+                </ion-list-header>
+    
+                <ion-grid>
+                  <ion-row>
+    
+                    <ion-col>
+                      <ion-item color="a">
+                        <legend>1</legend>
+                        <ion-radio value="1"></ion-radio>
+                      </ion-item>
+                    </ion-col>
+    
+                    <ion-col>
+                      <ion-item color="a">
+                        <legend>2</legend>
+                        <ion-radio value="2"></ion-radio>
+                      </ion-item>
+                    </ion-col>
+                    <ion-col>
+                      <ion-item color="a">
+                        <legend>3</legend>
+                        <ion-radio value="3"></ion-radio>
+                      </ion-item>
+                    </ion-col>
+                    <ion-col>
+                      <ion-item color="a">
+                        <legend>4</legend>
+                        <ion-radio value="4"></ion-radio>
+                      </ion-item>
+                    </ion-col>
+                    <ion-col>
+                      <ion-item color="a">
+                        <legend>5</legend>
+                        <ion-radio value="5"></ion-radio>
+                      </ion-item>
+                    </ion-col>
+    
+                  </ion-row>
+                </ion-grid>
+    
+              </ion-radio-group>
+
+              <ion-button class="login-button" expand="block"color="success" type="submit" [disabled]="!opinion.valid">Valorar</ion-button>
+
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ion-list>
+
+    </div>
+  </form>
+
+</ion-content>

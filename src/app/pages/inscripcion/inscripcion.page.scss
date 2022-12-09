@@ -1,0 +1,120 @@
+.fondo{
+
+    background-image: url(../../../assets/img/Inscripcion.jpg);
+    background-size: cover;
+    height: 90vh;
+    text-align: center;
+
+}
+
+.card{
+
+    background: rgba(255, 254, 254, 0.774);
+    margin: 0 auto;
+    top: 5vh;
+    height: 35vh;
+    width: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    color: black;
+
+}
+
+ion-card{
+
+    background: rgba(173, 169, 169, 0.774);
+    margin: 0 auto;
+    top: 5vh;
+    height: 35vh;
+    width: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+}
+ion-title{
+
+    font-size: 32px;
+    font-weight: bold;
+
+}
+.heading{
+    font-size: 32px;
+    font-weight: bold;
+    padding-left: 20px;
+    margin: 0;
+    margin-bottom: -70px;
+}
+.para{
+    font-size: 22px;
+    font-weight: 500;
+    padding-left: 20px;
+    margin-bottom: 95px;
+    color: black;
+}
+.input-item{
+    padding-left: 20px;
+    width: 100%;
+    border-radius: 12px;
+    border: 2px solid #e2e2e2;
+    height: 70px;
+    ion-input{
+        margin-top: -12px;
+    }
+}
+.forget-text{
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    text-align: end;
+    margin-bottom: -10px;
+    padding-right: 20px;
+}
+.login-button{
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 50px;
+    --border-radius: 12px;
+    margin-top: -60px;
+    --box-shadow: none;
+    --background: rgb(9, 211, 211);
+    margin-bottom: 10px;
+    --background: red;
+}
+.google-button{
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 50px;
+    --border-radius: 12px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    --box-shadow: none;
+}
+.signup-text{
+    a{
+        text-decoration: none;
+        color:black;
+    }
+    padding-right: 20px;
+    text-align: center;
+}
+
+@media (max-width: 500px){
+
+    .fondo{
+
+        height: 99vh;
+
+    }
+
+    ion-card{
+
+        height: 94vh;
+
+    }
+
+}

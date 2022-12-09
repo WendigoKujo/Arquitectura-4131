@@ -1,0 +1,47 @@
+<ion-content>
+
+  <div class="fondo">
+
+    <ion-card class="card">
+
+      <ion-card-content style="font-size: x-large;">En este apartado podras ver todos los talleres disponibles, basta con que le den al boton INSCRIBIRME y ya estaran postulando al taller</ion-card-content>
+
+    </ion-card>
+
+  </div>
+
+  <form [formGroup]="inscripcion">
+
+    <div *ngIf="talleres.length != 0;">
+      <ion-list *ngFor="let t of talleres">
+        <div *ngIf="t.estado_taller != 'Inactivo'">
+          <ion-card>
+            <ion-item>
+              <ion-card-header>
+                <ion-card-title>Nombre Taller: {{t.nombre}}</ion-card-title>
+                <br>
+                Fecha: {{t.fecha}}
+                <br>
+                Descripcion: {{t.descripcion}}
+                <br>
+                Estado Taller: {{t.estado_taller}}
+                <br>
+                Municipalidad: {{t.municipalidad}}
+                <br>
+                Sala: {{t.sala}}
+              </ion-card-header>
+            </ion-item>
+            <ion-card-content>
+
+              <ion-button class="login-button" expand="block" color="success" type="submit" (click)="registrar(t.descripcion, t.id, t.nombre)">Inscribirme</ion-button>
+
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ion-list>
+
+    </div>
+
+  </form>
+
+</ion-content>

@@ -1,0 +1,107 @@
+<ion-content>
+
+  <div class="fondo">
+
+    <form [formGroup]="taller" (ngSubmit)="registrar()">
+
+      <ion-card class="card">
+
+        <ion-card-content>
+
+          <ion-item lines="none" class="ion-item" color="a">
+            <fieldset  class="input-item">
+              <legend>Nombre Taller</legend> 
+              <ion-input type="text" placeholder="Ej: Taller De Pinturas" formControlName="nombre"></ion-input>
+            </fieldset>
+          </ion-item>
+
+          <ion-item lines="none" class="ion-item" color="a">
+            <fieldset  class="input-item">
+              <legend>Fecha</legend> 
+              <ion-input type="date" formControlName="fecha"></ion-input>
+            </fieldset>
+          </ion-item>
+
+          <ion-item lines="none" class="ion-item" color="a">
+            <fieldset  class="input-item">
+              <legend>descripcion</legend> 
+              <ion-input type="text" formControlName="descripcion"></ion-input>
+            </fieldset>
+          </ion-item>
+
+          <ion-item color="a">
+            <ion-select placeholder="Seleccione Curso" formControlName="curso">
+              <ion-list *ngFor="let c of cursos">
+                <ion-select-option value="{{c.nombre}}">{{c.nombre}}</ion-select-option>
+              </ion-list>
+            </ion-select>
+          </ion-item>
+
+          <ion-item color="a">
+            <ion-select placeholder="Estado Taller" formControlName="estado_taller">
+              <ion-select-option value="Activo">Activo</ion-select-option>
+              <ion-select-option value="Inactivo">Inactivo</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item color="a">
+            <ion-select placeholder="Seleccione Municipalidad" formControlName="municipalidad">
+              <ion-list *ngFor="let m of municipalidades">
+                  <ion-select-option value="{{m.nombre}}">{{m.nombre}}</ion-select-option>
+              </ion-list>
+            </ion-select>
+          </ion-item>
+
+          <ion-item color="a">
+            <ion-select placeholder="Seleccione Sala" formControlName="sala">
+              <ion-list *ngFor="let s of salas">
+                  <ion-select-option value="{{s.nombre}}">{{s.nombre}}</ion-select-option>
+              </ion-list>
+            </ion-select>
+          </ion-item>
+
+          <ion-button class="login-button" expand="block" color="success" type="submit" [disabled]="!taller.valid">Registrar</ion-button>
+          <ion-button class="login-button" expand="block" (click)="modificar()" color="warning" [disabled]="!taller.valid">MODIFICAR</ion-button>
+          <ion-button class="login-button" expand="block" (click)="limpiar()" color="danger">LIMPIAR</ion-button>
+
+        </ion-card-content>
+
+      </ion-card>
+
+    </form>
+
+  </div>
+
+  <h1 style="margin-left: 25px;">Lista de Talleres</h1>
+  <div *ngIf="talleres.length != 0; else elseBlock">
+    <ion-list *ngFor="let t of talleres">
+      <ion-card>
+        <ion-item>
+          <ion-card-header>
+            <ion-card-title>Nombre Taller: {{t.nombre}}</ion-card-title>
+            <br>
+            Fecha: {{t.fecha}}
+            <br>
+            Descripcion: {{t.descripcion}}
+            <br>
+            Estado Taller: {{t.estado_taller}}
+            <br>
+            Municipalidad: {{t.municipalidad}}
+            <br>
+            Sala: {{t.sala}}
+          </ion-card-header>
+        </ion-item>
+        <ion-card-content>
+          <ion-button slot="end" color="warning" (click)="buscar(t.id)">Buscar</ion-button>
+          <ion-button slot="end" color="danger" (click)="eliminar(t.id, t.nombre)">Eliminar</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+
+  </div>
+  
+  <ng-template #elseBlock>
+    <p>No Hay Municipalidades Registradas</p>
+  </ng-template>
+
+</ion-content>

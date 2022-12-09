@@ -1,0 +1,229 @@
+<ion-content>
+
+  <div class="fondo">
+
+    <h1 class="heading">🚀 Crear Una Cuenta<br><br></h1>
+    <p class="para">Registrate Para Empezar!</p>
+
+    <form [formGroup]="usuario" (ngSubmit)="registrar()">
+
+      <ion-card class="card">
+
+        <ion-card-content>
+
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+
+                <ion-item lines="none" class="ion-item" color="a">
+                  <fieldset  class="input-item">
+                    <legend>Rut</legend> 
+                    <ion-input formControlName="rut" type="text" placeholder="22.222.222-2"></ion-input>
+                  </fieldset>
+                </ion-item>
+
+              </ion-col>
+
+              <ion-col>
+
+                <ion-item lines="none" class="ion-item" color="a">
+                  <fieldset  class="input-item">
+                    <legend>Fecha de Nacimiento</legend> 
+                    <ion-input formControlName="fecha_nacimiento" type="date"></ion-input>
+                  </fieldset>
+                </ion-item>
+
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+
+                <ion-item lines="none" class="ion-item" color="a">
+                  <fieldset  class="input-item">
+                    <legend>Nombres</legend> 
+                    <ion-input formControlName="nombres" type="text" placeholder="Anthony Sebastian"></ion-input>
+                  </fieldset>
+                </ion-item>
+
+              </ion-col>
+
+              <ion-col>
+
+                <ion-item lines="none" class="ion-item" color="a">
+                  <fieldset  class="input-item">
+                    <legend>Apellidos</legend> 
+                    <ion-input formControlName="apellidos" type="text" placeholder="Caballero De La Puente"></ion-input>
+                  </fieldset>
+                </ion-item>
+
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+
+                <ion-item lines="none" class="ion-item" color="a">
+                  <fieldset  class="input-item">
+                    <legend>Email</legend> 
+                    <ion-input formControlName="email" type="email" placeholder="anthonycab@gmail.com"></ion-input>
+                  </fieldset>
+                </ion-item>
+
+              </ion-col>
+
+              <ion-col>
+
+                <ion-item lines="none" class="ion-item" color="a">
+                  <fieldset  class="input-item">
+                    <legend>Direccion</legend> 
+                    <ion-input formControlName="direccion" type="email" placeholder="Avenida Siempre Viva 742"></ion-input>
+                  </fieldset>
+                </ion-item>
+
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+          
+
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+
+                <ion-item lines="none" class="ion-item" color="a" size="auto">
+                  <fieldset  class="input-item">
+                    <legend>Telefono</legend> 
+                    <ion-input formControlName="telefono" type="number" placeholder="9999 9999"></ion-input>
+                  </fieldset>
+                </ion-item>
+
+              </ion-col>
+
+              <ion-col>
+
+                <ion-item lines="none" class="ion-item" color="a">
+                  <fieldset class="input-item">
+                    <legend>Contraseña</legend> 
+                    <ion-input formControlName="password" type="password" placeholder="*******"></ion-input>
+                  </fieldset>
+                </ion-item>
+
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+
+                <ion-item lines="none" class="ion-item" color="a" size="auto">
+                  <fieldset  class="input-item">
+                    <legend>Discapacidad(Opcional)</legend> 
+                    <ion-input formControlName="discapacidad" type="text" placeholder="Ej: Ceguera"></ion-input>
+                  </fieldset>
+                </ion-item>
+
+              </ion-col>
+
+              <ion-col>
+
+                <ion-item lines="none" class="ion-item" color="a">
+                  <fieldset class="input-item">
+                    <legend>Enfermedad(Opcional)</legend> 
+                    <ion-input formControlName="enfermedad" type="text" placeholder="Hipertension"></ion-input>
+                  </fieldset>
+                </ion-item>
+
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+          <ion-radio-group value="" formControlName="genero">
+
+            <ion-list-header>
+              <legend>Seleccione Genero</legend>
+            </ion-list-header>
+
+            <ion-grid>
+              <ion-row>
+
+                <ion-col>
+                  <ion-item color="a">
+                    <legend>Mujer</legend>
+                    <ion-radio value="mujer"></ion-radio>
+                  </ion-item>
+                </ion-col>
+
+                <ion-col>
+                  <ion-item color="a">
+                    <legend>Hombre</legend>
+                    <ion-radio value="hombre"></ion-radio>
+                  </ion-item>
+                </ion-col>
+
+              </ion-row>
+            </ion-grid>
+
+          </ion-radio-group>
+
+          <ion-item color="a">
+            <ion-select placeholder="Seleccione Tipo De Usuario" formControlName="tipo_usuario">
+              <ion-select-option value="administrador">Administrador</ion-select-option>
+              <ion-select-option value="beneficiario">Beneficiario</ion-select-option>
+              <ion-select-option value="instructor">Instructor</ion-select-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-button class="login-button" expand="block" [disabled]="!usuario.valid" color="success" type="submit">Registrarse</ion-button>
+          <ion-button class="login-button" expand="block" (click)="modificar()" color="warning" [disabled]="!usuario.valid">MODIFICAR</ion-button>
+          <ion-button class="login-button" expand="block" (click)="limpiar()" color="danger">LIMPIAR</ion-button>
+
+        </ion-card-content>
+
+      </ion-card>
+
+    </form>
+
+    <h1 style="margin-left: 25px;" >Lista de usuarios</h1>
+    <div *ngIf="usuarios.length != 0; else elseBlock">
+      <ion-list *ngFor="let u of usuarios">
+        <ion-card>
+          <ion-item>
+            <ion-card-header>
+              <ion-card-title>{{u.nombres + ' ' + u.apellidos}}</ion-card-title>
+              Rut: {{u.rut}}
+              <br>
+              Email: {{u.email}}
+              <br>
+              Fecha De Nacimiento: {{u.fecha_nacimiento}}
+              <br>
+              Genero: {{u.genero}}
+              <br>
+              Direccion: {{u.direccion}}
+              <br>
+              Telefono: 9 {{u.telefono}}
+              <br>
+              Tipo De Usuario: {{u.tipo_usuario}}
+            </ion-card-header>
+          </ion-item>
+          <ion-card-content>
+            <ion-button slot="end" color="warning" (click)="buscar(u.id)">Buscar</ion-button>
+            <ion-button slot="end" color="danger" (click)="eliminar(u.id, u.nombres, u.apellidos)">Eliminar</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-list>
+
+    </div>
+
+    <ng-template #elseBlock>
+      <p>No Hay Usuarios Registrados</p>
+    </ng-template>
+
+  </div>
+
+</ion-content>

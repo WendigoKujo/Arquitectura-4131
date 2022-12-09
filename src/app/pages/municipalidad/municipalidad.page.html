@@ -1,0 +1,80 @@
+<ion-content>
+
+  <div class="fondo">
+
+    <form [formGroup]="municipalidad" (ngSubmit)="registrar()">
+
+      <ion-card class="card">
+
+        <ion-card-content>
+
+          <ion-item lines="none" class="ion-item" color="a">
+            <fieldset  class="input-item">
+              <legend>Nombre Municipalidad</legend> 
+              <ion-input type="text" placeholder="Ej: Puente Alto" formControlName="nombre"></ion-input>
+            </fieldset>
+          </ion-item>
+
+          <ion-item lines="none" class="ion-item" color="a">
+            <fieldset  class="input-item">
+              <legend>Direccion</legend> 
+              <ion-input type="text" placeholder="Ej: Av. Concha y Toro 1820" formControlName="direccion"></ion-input>
+            </fieldset>
+          </ion-item>
+
+          <ion-item lines="none" class="ion-item" color="a">
+            <fieldset  class="input-item">
+              <legend>Telefono</legend> 
+              <ion-input type="number" placeholder="Ej: 2810 1600" formControlName="telefono"></ion-input>
+            </fieldset>
+          </ion-item>
+
+          <ion-item color="a">
+            <ion-select placeholder="Seleccione Comuna" formControlName="comuna">
+              <ion-list *ngFor="let c of comunas">
+                  <ion-select-option value="{{c.nombre}}">{{c.nombre}}</ion-select-option>
+              </ion-list>
+            </ion-select>
+          </ion-item>
+
+          <ion-button class="login-button" expand="block" color="success" type="submit" [disabled]="!municipalidad.valid">Registrar</ion-button>
+          <ion-button class="login-button" expand="block" (click)="modificar()" color="warning" [disabled]="!municipalidad.valid">MODIFICAR</ion-button>
+          <ion-button class="login-button" expand="block" (click)="limpiar()" color="danger">LIMPIAR</ion-button>
+
+        </ion-card-content>
+
+      </ion-card>
+
+    </form>
+
+  </div>
+
+  <h1 style="margin-left: 25px;">Lista de Municipalidades</h1>
+    <div *ngIf="municipalidades.length != 0; else elseBlock">
+      <ion-list *ngFor="let m of municipalidades">
+        <ion-card>
+          <ion-item>
+            <ion-card-header>
+              <ion-card-title>Municipalidad De {{m.nombre}}</ion-card-title>
+              <br>
+              Direccion: {{m.direccion}}
+              <br>
+              Telefono: {{m.telefono}}
+              <br>
+              Comuna: {{m.comuna}}
+            </ion-card-header>
+          </ion-item>
+          <ion-card-content>
+            <ion-button slot="end" color="warning" (click)="buscar(m.id)">Buscar</ion-button>
+            <ion-button slot="end" color="danger" (click)="eliminar(m.id, m.nombre)">Eliminar</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-list>
+
+    </div>
+    
+    <ng-template #elseBlock>
+      <p>No Hay Municipalidades Registradas</p>
+    </ng-template>
+
+</ion-content>

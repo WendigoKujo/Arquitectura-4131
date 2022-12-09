@@ -1,0 +1,61 @@
+<ion-content>
+
+  <div class="fondo">
+
+    <form [formGroup]="sala" (ngSubmit)="registrar()">
+
+      <ion-card class="card">
+
+        <ion-card-content>
+
+          <ion-item lines="none" class="ion-item" color="a">
+            <fieldset  class="input-item">
+              <legend>Nombre Sala</legend> 
+              <ion-input type="text" placeholder="Ej: TP9" formControlName="nombre"></ion-input>
+            </fieldset>
+          </ion-item>
+
+          <ion-item lines="none" class="ion-item" color="a">
+            <fieldset  class="input-item">
+              <legend>Fecha Utilizacion</legend> 
+              <ion-input type="date" formControlName="fecha"></ion-input>
+            </fieldset>
+          </ion-item>
+
+          <ion-button class="login-button" expand="block" color="success" type="submit" [disabled]="!sala.valid">Registrar</ion-button>
+          <ion-button class="login-button" expand="block" (click)="modificar()" color="warning" [disabled]="!sala.valid">MODIFICAR</ion-button>
+          <ion-button class="login-button" expand="block" (click)="limpiar()" color="danger">LIMPIAR</ion-button>
+
+        </ion-card-content>
+
+      </ion-card>
+
+    </form>
+
+  </div>
+
+  <h1 style="margin-left: 25px;">Lista de Salas</h1>
+    <div *ngIf="salas.length != 0; else elseBlock">
+      <ion-list *ngFor="let s of salas">
+        <ion-card>
+          <ion-item>
+            <ion-card-header>
+              <ion-card-title>Sala {{s.nombre}}</ion-card-title>
+              <br>
+              Fecha Utilizacion: {{s.fecha}}
+            </ion-card-header>
+          </ion-item>
+          <ion-card-content>
+            <ion-button slot="end" color="warning" (click)="buscar(s.id)">Buscar</ion-button>
+            <ion-button slot="end" color="danger" (click)="eliminar(s.id, s.nombre)">Eliminar</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-list>
+
+    </div>
+    
+    <ng-template #elseBlock>
+      <p>No Hay Municipalidades Registradas</p>
+    </ng-template>
+
+</ion-content>
